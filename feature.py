@@ -321,29 +321,26 @@ class Features:
                 ct += 1
         return (ct * 1.0) / len(pred)
 
-    def get_dis_s_o_rel(self, sub, obj, body):
-        return
-
-    def word2vecModel(self):
-        sentences = brown.sents()
-        model = gensim.models.Word2Vec(sentences, min_count=1)
-        model.save('brown_model')
-
-    def max_sim(self,body,predicate):
-
-        wordList=[]
-        model = gensim.models.Word2Vec.load('brown_model')
-        wordList=body.split()
-        m=[]
-        #model=gensim.models.KeyedVectors.load_word2vec_format('../GoogleNews-vectors-negative300.bin', binary=True)
-        for word in wordList:
-            try:
-                if word in model and predicate in model:
-                    #print(word+"\t"+predicate)
-                    m.append(model.similarity(word,predicate))
-            except:
-                m.append(0)
-        return(max(m))
+    # def word2vecModel(self):
+    #     sentences = brown.sents()
+    #     model = gensim.models.Word2Vec(sentences, min_count=1)
+    #     model.save('brown_model')
+    # 
+    # def max_sim(self,body,predicate):
+    # 
+    #     wordList=[]
+    #     model = gensim.models.Word2Vec.load('brown_model')
+    #     wordList=body.split()
+    #     m=[]
+    #     #model=gensim.models.KeyedVectors.load_word2vec_format('../GoogleNews-vectors-negative300.bin', binary=True)
+    #     for word in wordList:
+    #         try:
+    #             if word in model and predicate in model:
+    #                 #print(word+"\t"+predicate)
+    #                 m.append(model.similarity(word,predicate))
+    #         except:
+    #             m.append(0)
+    #     return(max(m))
 
     def get_jaccard_simi(self,str1, str2):
         a = set(str1.split())
