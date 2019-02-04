@@ -854,6 +854,7 @@ if __name__ == "__main__":
 			if len(d['triples'])>0:
 				if(len(d['sentence'])>0 and len(d['triples'][0][0])>0 and len(d['triples'][0][1])>0 and len(d['triples'][0][2])>0):
 					try:
+						print(c)
 						train_data.append(f.extract_features(d['sentence'], d['triples'][0][0], d['triples'][0][1],  d['triples'][0][2]))
 					except:
 						continue
@@ -864,6 +865,8 @@ if __name__ == "__main__":
 					else:
 						label.append(1)
 					c=+1
+		else:
+			break
 	print(len(label))
 	# print(len(label1))
 	# print(len(label2))
