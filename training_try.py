@@ -824,7 +824,8 @@ def train_and_plot(Data,label):
 	plt12.plot(train_sizes, test_scores_mean, 'o-', color="c",label="RF Cross-validation score")
 
 	plt12.legend(loc="best")
-	plt12.show()
+	#plt12.show()
+	plt12.savefig()
 
 	# eclf = VotingClassifier(estimators=[('rf', mlp), ('svm', clf), ('mlp', rf)], voting='hard')
 	# for clf, label in zip([mlp, clf, rf, eclf], ['Random Forest', 'SVM','Neural Net', 'Ensemble']):
