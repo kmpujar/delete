@@ -841,7 +841,7 @@ if __name__ == "__main__":
 	json_data = open('fever_3.json')
 	data = json.load(json_data)
 	f=Features()
-	f.word2vecModel()
+	#f.word2vecModel()
 	c=0
 	label1=[]
 	label2=[]
