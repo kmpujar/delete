@@ -719,8 +719,8 @@ def train_and_plot(Data,label):
 	test_scores_std = np.std(test_scores, axis=1)
 	plt12.grid()
 
-	#plt12.fill_between(train_sizes, train_scores_mean - train_scores_std,train_scores_mean + train_scores_std, alpha=0.1, color="b")
-	#plt12.fill_between(train_sizes, test_scores_mean - test_scores_std,test_scores_mean + test_scores_std, alpha=0.1, color="b")
+	plt12.fill_between(train_sizes, train_scores_mean - train_scores_std,train_scores_mean + train_scores_std, alpha=0.1, color="b")
+	plt12.fill_between(train_sizes, test_scores_mean - test_scores_std,test_scores_mean + test_scores_std, alpha=0.1, color="b")
 	plt12.plot(train_sizes, train_scores_mean, '--', color="b",label="MLP Training score")
 	plt12.plot(train_sizes, test_scores_mean, 'o-', color="b",label="MLP Cross-validation score")
 
@@ -769,8 +769,8 @@ def train_and_plot(Data,label):
 	test_scores_std = np.std(test_scores, axis=1)
 
 
-	#plt12.fill_between(train_sizes, train_scores_mean - train_scores_std,train_scores_mean + train_scores_std, alpha=0.1,color="m")
-	#plt12.fill_between(train_sizes, test_scores_mean - test_scores_std,test_scores_mean + test_scores_std, alpha=0.1, color="m")
+	plt12.fill_between(train_sizes, train_scores_mean - train_scores_std,train_scores_mean + train_scores_std, alpha=0.1,color="m")
+	plt12.fill_between(train_sizes, test_scores_mean - test_scores_std,test_scores_mean + test_scores_std, alpha=0.1, color="m")
 	plt12.plot(train_sizes, train_scores_mean, '--', color="m",label="SVM Training score")
 	plt12.plot(train_sizes, test_scores_mean, 'o-', color="m",label="SVM Cross-validation score")
 
@@ -820,14 +820,14 @@ def train_and_plot(Data,label):
 	test_scores_std = np.std(test_scores, axis=1)
 
 
-	#plt12.fill_between(train_sizes, train_scores_mean - train_scores_std,train_scores_mean + train_scores_std, alpha=0.1,color="c")
-	#plt12.fill_between(train_sizes, test_scores_mean - test_scores_std,test_scores_mean + test_scores_std, alpha=0.1, color="c")
+	plt12.fill_between(train_sizes, train_scores_mean - train_scores_std,train_scores_mean + train_scores_std, alpha=0.1,color="c")
+	plt12.fill_between(train_sizes, test_scores_mean - test_scores_std,test_scores_mean + test_scores_std, alpha=0.1, color="c")
 	plt12.plot(train_sizes, train_scores_mean, '--', color="c",label="RF Training score")
 	plt12.plot(train_sizes, test_scores_mean, 'o-', color="c",label="RF Cross-validation score")
 
 	plt12.legend(loc="best")
 	#plt12.show()
-	plt12.savefig('3class.png')
+	plt12.savefig('3class1.png')
 
 	# eclf = VotingClassifier(estimators=[('rf', mlp), ('svm', clf), ('mlp', rf)], voting='hard')
 	# for clf, label in zip([mlp, clf, rf, eclf], ['Random Forest', 'SVM','Neural Net', 'Ensemble']):
