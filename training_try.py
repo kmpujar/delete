@@ -22,6 +22,8 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score
 import numpy as np
 #import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt12
 from sklearn.model_selection import learning_curve
 from sklearn.metrics import precision_recall_fscore_support
@@ -847,19 +849,21 @@ if __name__ == "__main__":
 	label1=[]
 	label2=[]
 	for d in data:
-		label1.append(d['label'])
-		if len(d['triples'])>0:
-			if(len(d['sentence'])>0 and len(d['triples'][0][0])>0 and len(d['triples'][0][1])>0 and len(d['triples'][0][2])>0):
-				try:
-					train_data.append(f.extract_features(d['sentence'], d['triples'][0][0], d['triples'][0][1],  d['triples'][0][2]))
-				except:
-					continue
-				if d['label']==0: #or d['label']==0:
-					label.append(0)
-				elif d['label']==2:
-					label.append(2)
-				else:
-					label.append(1)
+		if c<15:
+			label1.append(d['label'])
+			if len(d['triples'])>0:
+				if(len(d['sentence'])>0 and len(d['triples'][0][0])>0 and len(d['triples'][0][1])>0 and len(d['triples'][0][2])>0):
+					try:
+						train_data.append(f.extract_features(d['sentence'], d['triples'][0][0], d['triples'][0][1],  d['triples'][0][2]))
+					except:
+						continue
+					if d['label']==0: #or d['label']==0:
+						label.append(0)
+					elif d['label']==2:
+						label.append(2)
+					else:
+						label.append(1)
+					c=+1
 	print(len(label))
 	# print(len(label1))
 	# print(len(label2))
