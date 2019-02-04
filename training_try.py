@@ -676,7 +676,7 @@ def train_and_plot(Data,label):
 		X_test[i][3] = temp[i]
 
 	#mlp=MLPClassifier(hidden_layer_sizes=(44,44), activation='relu', batch_size='auto',solver='adam', learning_rate='adaptive', max_iter=20000, validation_fraction=0.2, verbose=False, n_iter_no_change=300)
-	mlp=MLPClassifier(hidden_layer_sizes=(44,44), activation='tanh',solver='adam', batch_size='auto', alpha=0.05, learning_rate='adaptive', max_iter=15000, validation_fraction=0.2, verbose=False, n_iter_no_change=200)
+	mlp=MLPClassifier(hidden_layer_sizes=(44,44), activation='tanh',solver='adam', batch_size='auto', alpha=0.05, learning_rate='adaptive', max_iter=15000, validation_fraction=0.2, verbose=False, n_iter_no_change=25)
 	mlp.fit(X_train, y_train)
 	print("MLP accuracy "+str(mlp.score(X_test,np.ravel(y_test))))
 	op=mlp.predict(X_test)
@@ -849,7 +849,7 @@ if __name__ == "__main__":
 	label1=[]
 	label2=[]
 	for d in data:
-		if c<15:
+		if c<45:
 			label1.append(d['label'])
 			if len(d['triples'])>0:
 				if(len(d['sentence'])>0 and len(d['triples'][0][0])>0 and len(d['triples'][0][1])>0 and len(d['triples'][0][2])>0):
