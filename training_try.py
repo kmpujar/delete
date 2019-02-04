@@ -676,7 +676,7 @@ def train_and_plot(Data,label):
 		X_test[i][3] = temp[i]
 
 	#mlp=MLPClassifier(hidden_layer_sizes=(44,44), activation='relu', batch_size='auto',solver='adam', learning_rate='adaptive', max_iter=20000, validation_fraction=0.2, verbose=False, n_iter_no_change=300)
-	mlp=MLPClassifier(hidden_layer_sizes=(44,44), activation='tanh',solver='adam', batch_size='auto', alpha=0.05, learning_rate='adaptive', max_iter=15000, validation_fraction=0.2, verbose=False, n_iter_no_change=25)
+	mlp=MLPClassifier(hidden_layer_sizes=(44,44), activation='relu',solver='adam', batch_size='auto', alpha=0.0001, learning_rate='adaptive', max_iter=15000, validation_fraction=0.2, verbose=False, n_iter_no_change=25)
 	mlp.fit(X_train, y_train)
 	print("MLP accuracy "+str(mlp.score(X_test,np.ravel(y_test))))
 	op=mlp.predict(X_test)
@@ -777,7 +777,7 @@ def train_and_plot(Data,label):
 
 
 
-	rf = RandomForestClassifier(random_state=40, criterion= 'gini', max_depth= 10, max_features='log2', min_samples_split= 5, n_estimators= 20)
+	rf = RandomForestClassifier(random_state=40, criterion= 'entropy', max_depth= 10, max_features='log2', min_samples_split= 5, n_estimators= 20)
 	rf.fit(X_train, np.ravel(y_train))
 	print("RF accuracy: "+ str(clf.score(X_test,y_test)))
 	op=rf.predict(X_test)
