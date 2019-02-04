@@ -656,7 +656,7 @@ def grid_search(Data,label):
 def train_and_plot(Data,label):
 
 	plt12.figure()
-	plt12.title("FEVER 3-class")
+	plt12.title("FEVER Reject")
 	# if ylim is not None:
 	# 	plt12.ylim(*ylim)
 	plt12.xlabel("Training examples")
@@ -827,7 +827,7 @@ def train_and_plot(Data,label):
 
 	plt12.legend(loc="best")
 	#plt12.show()
-	plt12.savefig('3class1.png')
+	plt12.savefig('FEVERrej.png')
 
 	# eclf = VotingClassifier(estimators=[('rf', mlp), ('svm', clf), ('mlp', rf)], voting='hard')
 	# for clf, label in zip([mlp, clf, rf, eclf], ['Random Forest', 'SVM','Neural Net', 'Ensemble']):
@@ -841,7 +841,7 @@ def train_and_plot(Data,label):
 if __name__ == "__main__":
 	train_data=[]
 	label=[]
-	json_data = open('fever_3.json')
+	json_data = open('fever_rej.json')
 	data = json.load(json_data)
 	f=Features()
 	#f.word2vecModel()
@@ -858,8 +858,6 @@ if __name__ == "__main__":
 					continue
 				if d['label']==0: #or d['label']==0:
 					label.append(0)
-				elif d['label']==2:
-					label.append(2)
 				else:
 					label.append(1)
 
