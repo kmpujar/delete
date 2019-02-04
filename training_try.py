@@ -825,7 +825,7 @@ def train_and_plot(Data,label):
 
 	plt12.legend(loc="best")
 	#plt12.show()
-	plt12.savefig()
+	plt12.savefig('3class.png')
 
 	# eclf = VotingClassifier(estimators=[('rf', mlp), ('svm', clf), ('mlp', rf)], voting='hard')
 	# for clf, label in zip([mlp, clf, rf, eclf], ['Random Forest', 'SVM','Neural Net', 'Ensemble']):
