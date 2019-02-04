@@ -849,7 +849,7 @@ if __name__ == "__main__":
 	label1=[]
 	label2=[]
 	for d in data:
-		if c<15:
+		if c<45:
 			label1.append(d['label'])
 			if len(d['triples'])>0:
 				if(len(d['sentence'])>0 and len(d['triples'][0][0])>0 and len(d['triples'][0][1])>0 and len(d['triples'][0][2])>0):
