@@ -719,8 +719,8 @@ def train_and_plot(Data,label):
 	test_scores_std = np.std(test_scores, axis=1)
 	plt12.grid()
 
-	plt12.fill_between(train_sizes, train_scores_mean - train_scores_std,train_scores_mean + train_scores_std, alpha=0.1, color="b")
-	plt12.fill_between(train_sizes, test_scores_mean - test_scores_std,test_scores_mean + test_scores_std, alpha=0.1, color="b")
+	#plt12.fill_between(train_sizes, train_scores_mean - train_scores_std,train_scores_mean + train_scores_std, alpha=0.1, color="b")
+	#plt12.fill_between(train_sizes, test_scores_mean - test_scores_std,test_scores_mean + test_scores_std, alpha=0.1, color="b")
 	plt12.plot(train_sizes, train_scores_mean, '--', color="b",label="MLP Training score")
 	plt12.plot(train_sizes, test_scores_mean, 'o-', color="b",label="MLP Cross-validation score")
 
@@ -769,8 +769,8 @@ def train_and_plot(Data,label):
 	test_scores_std = np.std(test_scores, axis=1)
 
 
-	plt12.fill_between(train_sizes, train_scores_mean - train_scores_std,train_scores_mean + train_scores_std, alpha=0.1,color="m")
-	plt12.fill_between(train_sizes, test_scores_mean - test_scores_std,test_scores_mean + test_scores_std, alpha=0.1, color="m")
+	#plt12.fill_between(train_sizes, train_scores_mean - train_scores_std,train_scores_mean + train_scores_std, alpha=0.1,color="m")
+	#plt12.fill_between(train_sizes, test_scores_mean - test_scores_std,test_scores_mean + test_scores_std, alpha=0.1, color="m")
 	plt12.plot(train_sizes, train_scores_mean, '--', color="m",label="SVM Training score")
 	plt12.plot(train_sizes, test_scores_mean, 'o-', color="m",label="SVM Cross-validation score")
 
@@ -820,8 +820,8 @@ def train_and_plot(Data,label):
 	test_scores_std = np.std(test_scores, axis=1)
 
 
-	plt12.fill_between(train_sizes, train_scores_mean - train_scores_std,train_scores_mean + train_scores_std, alpha=0.1,color="c")
-	plt12.fill_between(train_sizes, test_scores_mean - test_scores_std,test_scores_mean + test_scores_std, alpha=0.1, color="c")
+	#plt12.fill_between(train_sizes, train_scores_mean - train_scores_std,train_scores_mean + train_scores_std, alpha=0.1,color="c")
+	#plt12.fill_between(train_sizes, test_scores_mean - test_scores_std,test_scores_mean + test_scores_std, alpha=0.1, color="c")
 	plt12.plot(train_sizes, train_scores_mean, '--', color="c",label="RF Training score")
 	plt12.plot(train_sizes, test_scores_mean, 'o-', color="c",label="RF Cross-validation score")
 
@@ -849,24 +849,20 @@ if __name__ == "__main__":
 	label1=[]
 	label2=[]
 	for d in data:
-		if c<145:
-			label1.append(d['label'])
-			if len(d['triples'])>0:
-				if(len(d['sentence'])>0 and len(d['triples'][0][0])>0 and len(d['triples'][0][1])>0 and len(d['triples'][0][2])>0):
-					try:
-						print(c)
-						train_data.append(f.extract_features(d['sentence'], d['triples'][0][0], d['triples'][0][1],  d['triples'][0][2]))
-					except:
-						continue
-					if d['label']==0: #or d['label']==0:
-						label.append(0)
-					elif d['label']==2:
-						label.append(2)
-					else:
-						label.append(1)
-					c+=1
-		else:
-			break
+		label1.append(d['label'])
+		if len(d['triples'])>0:
+			if(len(d['sentence'])>0 and len(d['triples'][0][0])>0 and len(d['triples'][0][1])>0 and len(d['triples'][0][2])>0):
+				try:
+					train_data.append(f.extract_features(d['sentence'], d['triples'][0][0], d['triples'][0][1],  d['triples'][0][2]))
+				except:
+					continue
+				if d['label']==0: #or d['label']==0:
+					label.append(0)
+				elif d['label']==2:
+					label.append(2)
+				else:
+					label.append(1)
+
 	print(len(label))
 	# print(len(label1))
 	# print(len(label2))
