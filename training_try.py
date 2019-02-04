@@ -864,7 +864,7 @@ if __name__ == "__main__":
 						label.append(2)
 					else:
 						label.append(1)
-					c=+1
+					c+=1
 		else:
 			break
 	print(len(label))
