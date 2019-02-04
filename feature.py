@@ -16,8 +16,8 @@ import nltk
 #from spacy import displacy
 from collections import Counter
 import en_core_web_sm
-import wikipedia
-import gensim
+#import wikipedia
+#import gensim
 from nltk import tokenize
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import pairwise_kernels
