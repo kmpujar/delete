@@ -340,7 +340,7 @@ def training_svm(Data,label):
 	# print("neg score",float(count00)/ct0)
 	# print("pos score",float(count11)/ct)
 
-	mlp=MLPClassifier(hidden_layer_sizes=(110), activation='relu', batch_size='auto', learning_rate_init=0.001, max_iter=30000, validation_fraction=0.1, verbose=False, n_iter_no_change=200)
+	mlp=MLPClassifier(hidden_layer_sizes=(110), activation='relu', batch_size='auto', learning_rate_init=0.001, max_iter=30000, validation_fraction=0.1, verbose=False, n_iter_no_change=25)
 	mlp.fit(X_train, y_train)
 	print("MLP accuracy "+str(mlp.score(X_test,np.ravel(y_test))))
 	op=clf.predict(X_test)
@@ -683,32 +683,32 @@ def train_and_plot(Data,label):
 	print('Results on the test set:')
 	print(classification_report(y_test, op))
 	print("Neural Net")
-	ct=0
-	ct0=0
-	count00=0
-	count01=0
-	count10=0
-	count11=0
-	acc=0
-	for i in range(0,len(op)):
-		if op[i]==y_test[i]:
-			acc+=1
-		if y_test[i]==0:
-			ct0+=1
-			if(op[i]==0):
-				count00+=1
-			elif(op[i]==1):
-				count01+=1
-		elif y_test[i]==1:
-			ct+=1
-			if(op[i]==1):
-				count11+=1
-			elif(op[i]==0):
-				count10+=1
-	print("TN, FN, TP, FP", count00,count01,count11,count10)
-	print("neg score",float(count00)/ct0)
-	print("pos score",float(count11)/ct)
-	print("accuracy",float(acc)/len(op))
+	# ct=0
+	# ct0=0
+	# count00=0
+	# count01=0
+	# count10=0
+	# count11=0
+	# acc=0
+	# for i in range(0,len(op)):
+	# 	if op[i]==y_test[i]:
+	# 		acc+=1
+	# 	if y_test[i]==0:
+	# 		ct0+=1
+	# 		if(op[i]==0):
+	# 			count00+=1
+	# 		elif(op[i]==1):
+	# 			count01+=1
+	# 	elif y_test[i]==1:
+	# 		ct+=1
+	# 		if(op[i]==1):
+	# 			count11+=1
+	# 		elif(op[i]==0):
+	# 			count10+=1
+	# print("TN, FN, TP, FP", count00,count01,count11,count10)
+	# print("neg score",float(count00)/ct0)
+	# print("pos score",float(count11)/ct)
+	# print("accuracy",float(acc)/len(op))
 	print(precision_recall_fscore_support(y_test, op, average='micro'))
 	#plot_learning_curve(mlp, "Neural Net", X_train, y_train, cv=5, n_jobs=-1)
 	#plt.show()
@@ -733,32 +733,32 @@ def train_and_plot(Data,label):
 	print('Results on the test set:')
 	print(classification_report(y_test, op))
 	print("SVM")
-	ct=0
-	ct0=0
-	count00=0
-	count01=0
-	count10=0
-	count11=0
-	acc=0
-	for i in range(0,len(op)):
-		if op[i]==y_test[i]:
-			acc+=1
-		if y_test[i]==0:
-			ct0+=1
-			if(op[i]==0):
-				count00+=1
-			elif(op[i]==1):
-				count01+=1
-		elif y_test[i]==1:
-			ct+=1
-			if(op[i]==1):
-				count11+=1
-			elif(op[i]==0):
-				count10+=1
-	print("TN, FN, TP, FP", count00,count01,count11,count10)
-	print("neg score",float(count00)/ct0)
-	print("pos score",float(count11)/ct)
-	print("accuracy",float(acc)/len(op))
+	# ct=0
+	# ct0=0
+	# count00=0
+	# count01=0
+	# count10=0
+	# count11=0
+	# acc=0
+	# for i in range(0,len(op)):
+	# 	if op[i]==y_test[i]:
+	# 		acc+=1
+	# 	if y_test[i]==0:
+	# 		ct0+=1
+	# 		if(op[i]==0):
+	# 			count00+=1
+	# 		elif(op[i]==1):
+	# 			count01+=1
+	# 	elif y_test[i]==1:
+	# 		ct+=1
+	# 		if(op[i]==1):
+	# 			count11+=1
+	# 		elif(op[i]==0):
+	# 			count10+=1
+	# print("TN, FN, TP, FP", count00,count01,count11,count10)
+	# print("neg score",float(count00)/ct0)
+	# print("pos score",float(count11)/ct)
+	# print("accuracy",float(acc)/len(op))
 	print(precision_recall_fscore_support(y_test, op, average='micro'))
 	# plot_learning_curve(clf, "SVM", X_train, y_train, cv=5, n_jobs=-1)
 	# plt.show()
@@ -784,32 +784,32 @@ def train_and_plot(Data,label):
 	print('Results on the test set:')
 	print(classification_report(y_test, op))
 	print("Random Forest")
-	ct=0
-	ct0=0
-	count00=0
-	count01=0
-	count10=0
-	count11=0
-	acc=0
-	for i in range(0,len(op)):
-		if op[i]==y_test[i]:
-			acc+=1
-		if y_test[i]==0:
-			ct0+=1
-			if(op[i]==0):
-				count00+=1
-			elif(op[i]==1):
-				count01+=1
-		elif y_test[i]==1:
-			ct+=1
-			if(op[i]==1):
-				count11+=1
-			elif(op[i]==0):
-				count10+=1
-	print("TN, FN, TP, FP", count00,count01,count11,count10)
-	print("neg score",float(count00)/ct0)
-	print("pos score",float(count11)/ct)
-	print("accuracy",float(acc)/len(op))
+	# ct=0
+	# ct0=0
+	# count00=0
+	# count01=0
+	# count10=0
+	# count11=0
+	# acc=0
+	# for i in range(0,len(op)):
+	# 	if op[i]==y_test[i]:
+	# 		acc+=1
+	# 	if y_test[i]==0:
+	# 		ct0+=1
+	# 		if(op[i]==0):
+	# 			count00+=1
+	# 		elif(op[i]==1):
+	# 			count01+=1
+	# 	elif y_test[i]==1:
+	# 		ct+=1
+	# 		if(op[i]==1):
+	# 			count11+=1
+	# 		elif(op[i]==0):
+	# 			count10+=1
+	# print("TN, FN, TP, FP", count00,count01,count11,count10)
+	# print("neg score",float(count00)/ct0)
+	# print("pos score",float(count11)/ct)
+	# print("accuracy",float(acc)/len(op))
 	print(precision_recall_fscore_support(y_test, op, average='micro'))
 	# plot_learning_curve(rf, "Random Forest", X_train, y_train, cv=5, n_jobs=-1)
 	# plt.show()
@@ -849,7 +849,7 @@ if __name__ == "__main__":
 	label1=[]
 	label2=[]
 	for d in data:
-		if c<45:
+		if c<15:
 			label1.append(d['label'])
 			if len(d['triples'])>0:
 				if(len(d['sentence'])>0 and len(d['triples'][0][0])>0 and len(d['triples'][0][1])>0 and len(d['triples'][0][2])>0):
